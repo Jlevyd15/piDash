@@ -1,0 +1,74 @@
+{
+  "data": [
+    {
+      "ActivePeriods": [],
+      "InformedEntities": [
+        {
+          "AgencyId": "BA",
+          "Trip": null
+        }
+      ],
+      "Url": {
+        "Translations": [
+          {
+            "Text": "http://www.bart.gov/schedules/advisories",
+            "Language": "en"
+          }
+        ]
+      },
+      "HeaderText": {
+        "Translations": [
+          {
+            "Text": "BART.gov Alert",
+            "Language": "en"
+          }
+        ]
+      },
+      "DescriptionText": {
+        "Translations": [
+          {
+            "Text": "There is limited Yellow line train service between Antioch and SFO  ",
+            "Language": "en"
+          }
+        ]
+      },
+      "TtsHeaderText": null,
+      "TtsDescriptionText": null
+    },
+    {
+      "ActivePeriods": [],
+      "InformedEntities": [
+        {
+          "AgencyId": "BA",
+          "Trip": null
+        }
+      ],
+      "Url": {
+        "Translations": [
+          {
+            "Text": "http://www.bart.gov/schedules/advisories",
+            "Language": "en"
+          }
+        ]
+      },
+      "HeaderText": {
+        "Translations": [
+          {
+            "Text": "BART.gov Alert",
+            "Language": "en"
+          }
+        ]
+      },
+      "DescriptionText": {
+        "Translations": [
+          {
+            "Text": "There may be up to 20-min delays systemwide due to wet weather conditions. Please watch your step on wet platforms and stairways. Thank you. ",
+            "Language": "en"
+          }
+        ]
+      },
+      "TtsHeaderText": null,
+      "TtsDescriptionText": null
+    }
+  ]
+}

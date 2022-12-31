@@ -1,0 +1,197 @@
+{
+  "Siri": {
+    "ServiceDelivery": {
+      "ResponseTimestamp": "2022-12-30T11:04:53-08:00",
+      "Status": true,
+      "StopTimetableDelivery": {
+        "ResponseTimestamp": "2022-12-30T11:04:53-08:00",
+        "TimetabledStopVisit": [
+          {
+            "RecordedAtTime": "2022-12-16T14:35:49-08:00",
+            "MonitoringRef": "PHIL",
+            "TargetedVehicleJourney": {
+              "LineRef": "Yellow-S",
+              "DirectionRef": "S",
+              "DatedVehicleJourneyRef": "1250195",
+              "PublishedLineName": "Yellow-S",
+              "OperatorRef": "BA",
+              "OriginRef": "ANTC",
+              "OriginName": "Antioch",
+              "DestinationRef": "SFIA",
+              "DestinationName": "San Francisco International Airport",
+              "VehicleJourneyName": "San Francisco International Airport",
+              "TargetedCall": {
+                "StopPointRef": "PHIL",
+                "StopPointName": "Pleasant Hill / Contra Costa Centre",
+                "VisitNumber": "1",
+                "AimedArrivalTime": "2022-12-30T11:16:53-08:00",
+                "AimedDepartureTime": "2022-12-30T11:16:53-08:00"
+              }
+            }
+          },
+          {
+            "RecordedAtTime": "2022-12-16T14:35:49-08:00",
+            "MonitoringRef": "PHIL",
+            "TargetedVehicleJourney": {
+              "LineRef": "Yellow-S",
+              "DirectionRef": "S",
+              "DatedVehicleJourneyRef": "1250196",
+              "PublishedLineName": "Yellow-S",
+              "OperatorRef": "BA",
+              "OriginRef": "ANTC",
+              "OriginName": "Antioch",
+              "DestinationRef": "SFIA",
+              "DestinationName": "San Francisco International Airport",
+              "VehicleJourneyName": "San Francisco International Airport",
+              "TargetedCall": {
+                "StopPointRef": "PHIL",
+                "StopPointName": "Pleasant Hill / Contra Costa Centre",
+                "VisitNumber": "1",
+                "AimedArrivalTime": "2022-12-30T11:31:53-08:00",
+                "AimedDepartureTime": "2022-12-30T11:31:53-08:00"
+              }
+            }
+          },
+          {
+            "RecordedAtTime": "2022-12-16T14:35:49-08:00",
+            "MonitoringRef": "PHIL",
+            "TargetedVehicleJourney": {
+              "LineRef": "Yellow-S",
+              "DirectionRef": "S",
+              "DatedVehicleJourneyRef": "1250197",
+              "PublishedLineName": "Yellow-S",
+              "OperatorRef": "BA",
+              "OriginRef": "ANTC",
+              "OriginName": "Antioch",
+              "DestinationRef": "SFIA",
+              "DestinationName": "San Francisco International Airport",
+              "VehicleJourneyName": "San Francisco International Airport",
+              "TargetedCall": {
+                "StopPointRef": "PHIL",
+                "StopPointName": "Pleasant Hill / Contra Costa Centre",
+                "VisitNumber": "1",
+                "AimedArrivalTime": "2022-12-30T11:46:53-08:00",
+                "AimedDepartureTime": "2022-12-30T11:46:53-08:00"
+              }
+            }
+          },
+          {
+            "RecordedAtTime": "2022-12-16T14:35:49-08:00",
+            "MonitoringRef": "PHIL",
+            "TargetedVehicleJourney": {
+              "LineRef": "Yellow-S",
+              "DirectionRef": "S",
+              "DatedVehicleJourneyRef": "1250198",
+              "PublishedLineName": "Yellow-S",
+              "OperatorRef": "BA",
+              "OriginRef": "ANTC",
+              "OriginName": "Antioch",
+              "DestinationRef": "SFIA",
+              "DestinationName": "San Francisco International Airport",
+              "VehicleJourneyName": "San Francisco International Airport",
+              "TargetedCall": {
+                "StopPointRef": "PHIL",
+                "StopPointName": "Pleasant Hill / Contra Costa Centre",
+                "VisitNumber": "1",
+                "AimedArrivalTime": "2022-12-30T12:01:53-08:00",
+                "AimedDepartureTime": "2022-12-30T12:01:53-08:00"
+              }
+            }
+          },
+          {
+            "RecordedAtTime": "2022-12-16T14:35:49-08:00",
+            "MonitoringRef": "PHIL",
+            "TargetedVehicleJourney": {
+              "LineRef": "Yellow-S",
+              "DirectionRef": "S",
+              "DatedVehicleJourneyRef": "1250199",
+              "PublishedLineName": "Yellow-S",
+              "OperatorRef": "BA",
+              "OriginRef": "ANTC",
+              "OriginName": "Antioch",
+              "DestinationRef": "SFIA",
+              "DestinationName": "San Francisco International Airport",
+              "VehicleJourneyName": "San Francisco International Airport",
+              "TargetedCall": {
+                "StopPointRef": "PHIL",
+                "StopPointName": "Pleasant Hill / Contra Costa Centre",
+                "VisitNumber": "1",
+                "AimedArrivalTime": "2022-12-30T12:16:53-08:00",
+                "AimedDepartureTime": "2022-12-30T12:16:53-08:00"
+              }
+            }
+          },
+          {
+            "RecordedAtTime": "2022-12-16T14:35:49-08:00",
+            "MonitoringRef": "PHIL",
+            "TargetedVehicleJourney": {
+              "LineRef": "Yellow-S",
+              "DirectionRef": "S",
+              "DatedVehicleJourneyRef": "1250200",
+              "PublishedLineName": "Yellow-S",
+              "OperatorRef": "BA",
+              "OriginRef": "ANTC",
+              "OriginName": "Antioch",
+              "DestinationRef": "SFIA",
+              "DestinationName": "San Francisco International Airport",
+              "VehicleJourneyName": "San Francisco International Airport",
+              "TargetedCall": {
+                "StopPointRef": "PHIL",
+                "StopPointName": "Pleasant Hill / Contra Costa Centre",
+                "VisitNumber": "1",
+                "AimedArrivalTime": "2022-12-30T12:31:53-08:00",
+                "AimedDepartureTime": "2022-12-30T12:31:53-08:00"
+              }
+            }
+          },
+          {
+            "RecordedAtTime": "2022-12-16T14:35:49-08:00",
+            "MonitoringRef": "PHIL",
+            "TargetedVehicleJourney": {
+              "LineRef": "Yellow-S",
+              "DirectionRef": "S",
+              "DatedVehicleJourneyRef": "1250201",
+              "PublishedLineName": "Yellow-S",
+              "OperatorRef": "BA",
+              "OriginRef": "ANTC",
+              "OriginName": "Antioch",
+              "DestinationRef": "SFIA",
+              "DestinationName": "San Francisco International Airport",
+              "VehicleJourneyName": "San Francisco International Airport",
+              "TargetedCall": {
+                "StopPointRef": "PHIL",
+                "StopPointName": "Pleasant Hill / Contra Costa Centre",
+                "VisitNumber": "1",
+                "AimedArrivalTime": "2022-12-30T12:46:53-08:00",
+                "AimedDepartureTime": "2022-12-30T12:46:53-08:00"
+              }
+            }
+          },
+          {
+            "RecordedAtTime": "2022-12-16T14:35:49-08:00",
+            "MonitoringRef": "PHIL",
+            "TargetedVehicleJourney": {
+              "LineRef": "Yellow-S",
+              "DirectionRef": "S",
+              "DatedVehicleJourneyRef": "1250202",
+              "PublishedLineName": "Yellow-S",
+              "OperatorRef": "BA",
+              "OriginRef": "ANTC",
+              "OriginName": "Antioch",
+              "DestinationRef": "SFIA",
+              "DestinationName": "San Francisco International Airport",
+              "VehicleJourneyName": "San Francisco International Airport",
+              "TargetedCall": {
+                "StopPointRef": "PHIL",
+                "StopPointName": "Pleasant Hill / Contra Costa Centre",
+                "VisitNumber": "1",
+                "AimedArrivalTime": "2022-12-30T13:01:53-08:00",
+                "AimedDepartureTime": "2022-12-30T13:01:53-08:00"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,28 +1,32 @@
-import { Buffer } from "buffer";
+import { fixInvalidUtf8 } from "../utils/helpers";
+import mockTimesData from "../test_data/times.json";
+import MockDataFromSource from "../test_data/511_stoptimetable_WC_SF_BART.json";
+
+const NUMBER_OF_STOP_TIMES = 4;
+const OPERATOR_ID = "BA";
 
 const getTransitTimetableAPI = (stopId, lineId) =>
-  `https://api.511.org/transit/stoptimetable?api_key=${process.env.TRANSIT_API_KEY}&operatorref=SF&monitoringref=${stopId}&format=json&lineref=${lineId}`;
-
-const fixInvalidUtf8 = (data) => {
-  // This is a hacky fix because the 511 endpoint return invalid UTF-8 characters.
-  // I needed to encode to latin1 which can return a the invalid character to something I can read and remove
-  const encodeToLatin = Buffer.from(data, "latin1").toString("latin1");
-  // after encoding to latin1 I can replace the invalid character.
-  return encodeToLatin.replace("ÿ", "");
-};
+  `https://api.511.org/transit/stoptimetable?api_key=${process.env.TRANSIT_API_KEY}&operatorref=${OPERATOR_ID}&monitoringref=${stopId}&format=json&lineref=${lineId}`;
 
 const getFormattedTimetableData = (data) => {
   try {
     const results = [];
     let lineId = "";
-    const cleaned = fixInvalidUtf8(data);
-    const dataToJson = JSON.parse(cleaned);
+
+    let dataToJson;
+    if (process.env.NODE_ENV !== "production") {
+      dataToJson = data;
+    } else {
+      const cleaned = fixInvalidUtf8(data);
+      dataToJson = JSON.parse(cleaned);
+    }
+    // console.log(cleaned);
     const stopsTimeData =
       dataToJson?.["Siri"]["ServiceDelivery"]["StopTimetableDelivery"][
         "TimetabledStopVisit"
       ];
     // Grab the first two timetable entries only
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < NUMBER_OF_STOP_TIMES; i++) {
       const arrivalTime =
         stopsTimeData[i]?.["TargetedVehicleJourney"]?.["TargetedCall"]
           ?.AimedArrivalTime;
@@ -34,8 +38,21 @@ const getFormattedTimetableData = (data) => {
         hour12: true,
         timeZone: "America/Los_Angeles",
       });
+      const timeNow = Date.now();
+      console.log("arrivalTime ", arrivalTime);
+      console.log("timeNow ");
+
+      // TODO(@jlevyd15) guard against 0 min from now
+      const minutesFromNow = (new Date(arrivalTime) - timeNow) / 60000;
+      const formattedMinFromNow =
+        minutesFromNow < 1
+          ? Math.round(minutesFromNow)
+          : Math.round(minutesFromNow) + " min";
       lineId = stopsTimeData[i]?.["TargetedVehicleJourney"]?.["LineRef"];
-      results.push(arrivalTimeInTwelveHourFormat);
+      results.push({
+        arrivalTime: arrivalTimeInTwelveHourFormat,
+        etaFromNow: formattedMinFromNow,
+      });
     }
 
     return {
@@ -49,9 +66,17 @@ const getFormattedTimetableData = (data) => {
 };
 
 const getTimetableData = async (stopId, lineId) => {
+  console.log(`NODE_ENV is ${process.env.NODE_ENV}`);
+  let raw;
   try {
-    const response = await fetch(getTransitTimetableAPI(stopId, lineId));
-    const raw = await response.text();
+    // return mock data when we're in dev mode.
+    if (process.env.NODE_ENV !== "production") {
+      raw = MockDataFromSource;
+    } else {
+      const response = await fetch(getTransitTimetableAPI(stopId, lineId));
+      //TODO - why is this not json() here?
+      raw = await response.text();
+    }
     return getFormattedTimetableData(raw);
   } catch (err) {
     return {
@@ -62,40 +87,17 @@ const getTimetableData = async (stopId, lineId) => {
 };
 
 export default async function times(req, res) {
-  const { APP_API_KEY } = process.env;
-  const ACTION_KEY = req.headers?.authorization?.split(" ")[1];
-  const { stopId, lineIds } = req.query;
-  const jsonLineIds = JSON.parse(lineIds);
+  const { stopId, lineId } = req.query;
 
-  if (ACTION_KEY !== APP_API_KEY || !ACTION_KEY) {
-    return res.status(401).json({ error: "", message: "Auth error" });
-  }
-
-  if (!Array.isArray(jsonLineIds) || jsonLineIds.length < 1) {
-    return res
-      .status(401)
-      .json({ error: "", message: "lineIds must be an Array of lineIds" });
-  }
-
-  Promise.all(
-    jsonLineIds.map((lineId) => {
-      try {
-        return getTimetableData(stopId, lineId);
-      } catch (err) {
-        return {
-          error: err,
-          message: "Error fetching transit data, please try again.",
-        };
-      }
-    })
-  )
-    .then((data) => {
-      return res.status(200).json({ data });
-    })
-    .catch((err) => {
-      res.status(500).json({
-        error: err,
-        message: "Error fetching transit data, please try again.",
-      });
+  let data;
+  try {
+    data = mockTimesData;
+    data = await getTimetableData(stopId, lineId);
+    return res.status(200).json(data);
+  } catch (err) {
+    res.status(500).json({
+      error: err,
+      message: "Error fetching transit data, please try again.",
     });
+  }
 }
